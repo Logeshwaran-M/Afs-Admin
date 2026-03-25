@@ -1,0 +1,128 @@
+.sidebar {
+  width: 260px;
+  background: linear-gradient(180deg, #4f46e5, #7c3aed);
+  color: #fff;
+  position: fixed;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  z-index: 1500;
+  box-shadow: 4px 0 25px rgba(0, 0, 0, 0.2);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar-header {
+  padding: 40px 20px 20px; /* Space for close button */
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.sidebar-logo {
+  width: 100%;
+  max-width: 180px;
+  height: auto;
+  border-radius: 8px;
+  background: white;
+  padding: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.sidebar-nav {
+  flex: 1;
+  padding: 20px 0;
+  overflow-y: auto;
+}
+
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 25px;
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.sidebar-nav a:hover {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  padding-left: 30px;
+}
+
+.sidebar-nav a.active {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  border-left: 5px solid #fff;
+}
+
+.sidebar-footer {
+  padding: 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.logout-btn {
+  width: 100%;
+  padding: 12px;
+  background: #ef4444;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+/* Mobile Specific Buttons */
+.hamburger-btn, .close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  display: none;
+  transition: 0.3s;
+}
+
+.hamburger-btn {
+  position: fixed;
+  top: 18px;
+  left: 20px;
+  z-index: 1001;
+  color: #4f46e5; /* Header color-ku match-ah */
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .hamburger-btn, .close-btn {
+    display: block;
+  }
+
+  .sidebar {
+    left: -280px;
+    width: 280px;
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+
+  .sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+    z-index: 1400;
+  }
+}
